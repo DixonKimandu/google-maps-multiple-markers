@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Multiple Markers Google Maps</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Kenya
+  var center = {lat: 0.0236, lng: 37.9062};
+  var x;
+  var nrb= {lat: -1.3028618, lng: 36.707308};
+  var mmb = {lat: -4.0350145, lng: 39.5962221};
+  var kis = {lat: -0.0746293, lng: 34.5980798};
+  var waj = {lat: 1.9416621, lng: 37.6975771};
+  var counties = [nrb, mmb, kis, waj];
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 6, center: center});
+  // The marker, positioned at variables
+  for (x in counties) {
+  var markers = new google.maps.Marker({position: counties[x], map: map});
+}
+
+}
+    </script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key="YOUR API KEY"&callback=initMap">
+    </script>
+  </body>
+</html>
